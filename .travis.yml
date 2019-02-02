@@ -1,0 +1,9 @@
+sudo: required
+services:
+   - docker
+
+before_install:
+   - docker build -t scollynz/docker-react -f Dockerfile.dev .
+
+script:
+   - docker run scollynz/docker-react npm run test -- --coverage
